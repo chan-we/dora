@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, redirect, RouterProvider } from 'react-router-dom'
 import App from './App'
-import Info from './pages/info'
+import Jsonpath from './pages/jsonpath'
 import './index.css'
 
 const router = createBrowserRouter([
@@ -11,8 +11,12 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: 'info',
-        element: <Info />,
+        path: '',
+        loader: () => redirect('/jsonpath'),
+      },
+      {
+        path: 'jsonpath',
+        element: <Jsonpath />,
       },
     ],
   },

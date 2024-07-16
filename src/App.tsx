@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import { UserOutlined } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
 import { Layout, Menu, theme } from 'antd'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useRoutes } from 'react-router-dom'
 
 const { Content, Sider } = Layout
 
@@ -10,9 +9,8 @@ type MenuItem = Required<MenuProps>['items'][number]
 
 const items: MenuItem[] = [
   {
-    label: '个人信息',
-    key: 'personalInfo',
-    icon: <UserOutlined />,
+    label: 'Jsonpath测试',
+    key: 'jsonpath',
   },
 ]
 
@@ -21,6 +19,7 @@ const App: React.FC = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken()
+
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -32,7 +31,7 @@ const App: React.FC = () => {
         <div className='demo-logo-vertical' />
         <Menu
           theme='dark'
-          defaultSelectedKeys={['1']}
+          defaultSelectedKeys={['jsonpath']}
           mode='inline'
           items={items}
         />
