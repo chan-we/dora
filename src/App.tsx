@@ -4,7 +4,7 @@ import type { MenuProps } from 'antd'
 import { Layout, Menu, theme } from 'antd'
 import { Outlet } from 'react-router-dom'
 
-const { Content, Footer, Sider } = Layout
+const { Content, Sider } = Layout
 
 type MenuItem = Required<MenuProps>['items'][number]
 
