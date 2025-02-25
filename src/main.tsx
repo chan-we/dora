@@ -4,6 +4,7 @@ import { createBrowserRouter, redirect, RouterProvider } from 'react-router-dom'
 import App from './App'
 import Jsonpath from './pages/jsonpath'
 import './index.css'
+import ImageCheck from './pages/image-check'
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: 'jsonpath',
         element: <Jsonpath />,
+      },
+      {
+        path: 'file-check',
+        element: <ImageCheck />,
       },
     ],
   },

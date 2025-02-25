@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import type { MenuProps } from 'antd'
 import { Layout, Menu, theme } from 'antd'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 
 const { Content, Sider } = Layout
 
@@ -12,14 +12,22 @@ const items: MenuItem[] = [
     label: 'Jsonpath测试',
     key: 'jsonpath',
   },
+  {
+    label: '文件检查',
+    key: 'file-check',
+  },
 ]
 
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false)
+  const navigate = useNavigate()
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken()
 
+  const handleClickMenu: MenuProps['onClick'] = ({ key }) => {
+    navigate(key)
+  }
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -30,6 +38,7 @@ const App: React.FC = () => {
       >
         <div className='demo-logo-vertical' />
         <Menu
+          onClick={handleClickMenu}
           theme='dark'
           defaultSelectedKeys={['jsonpath']}
           mode='inline'
@@ -42,7 +51,7 @@ const App: React.FC = () => {
             style={{
               background: colorBgContainer,
               borderRadius: borderRadiusLG,
-              minHeight: 360,
+              minHeight: '100%',
             }}
           >
             <Outlet />

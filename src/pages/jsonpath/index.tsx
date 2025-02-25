@@ -16,7 +16,9 @@ const Info = () => {
     let json = {}
     try {
       json = JSON.parse(inputJson || '{}')
-    } catch {}
+    } catch (e) {
+      console.error(e)
+    }
 
     const res = JSONPath({
       path: path || '',
